@@ -37,13 +37,50 @@ document.addEventListener('DOMContentLoaded', function () {
     p.addEventListener('click', function () {
         p.style.color = getRandomColor();
     });
- function getRandomColor() {
-            let letters = '0123456789ABCDEF';
-            let color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }; 
-            return color;
+    function getRandomColor() {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
         };
+        return color;
+    };
+
+    // button and empty div
+    let newDiv = document.createElement('div');
+    let newButton = document.createElement('button');
+    newButton.innerText = ('Name');
+    document.body.appendChild(newButton);
+    document.body.appendChild(newDiv);
+
+    //add span when button is clicked
+    newButton.addEventListener('click', function () {
+        let span = document.createElement('span');
+        newDiv.appendChild(span);
+        span.innerText = ('Amanda Parrott');
+    });
+
+    //friends button array and function
+
+
+
+    let friends = ["Linc", "Amy", "Holley", "Justin", "Tailor", "Paul", "Elizabeth", "Chelsea", "Maya", "Danielle"];
+    let friendx = 0;
+    let friendBtn = document.getElementById('friendBtn');
+    let ul = document.getElementById('friendsList');
+    
+
+friendBtn.addEventListener('click', function() {
+    if (friends[friendx]) {
+        let li = document.createElement('li');
+        li.innerText = friends[friendx];
+        ul.appendChild(li);
+        friendx++;
+    } else {
+        alert ("You don't have any more friends...");
+    };
+    }
+);
+
     //end of body
 })
